@@ -8,10 +8,6 @@ class ComposerStaticInit77f03956980255ddab9c24caaa5a6b9a
 {
     public static $files = array (
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
-        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        'd767e4fc2dc52fe66584ab8c6684783e' => __DIR__ . '/..' . '/adbario/php-dot-notation/src/helpers.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -19,14 +15,9 @@ class ComposerStaticInit77f03956980255ddab9c24caaa5a6b9a
     );
 
     public static $prefixLengthsPsr4 = array (
-        'x' => 
-        array (
-            'xhprof\\' => 7,
-        ),
         'a' => 
         array (
             'app\\' => 4,
-            'api\\tool\\' => 9,
         ),
         'T' => 
         array (
@@ -45,35 +36,17 @@ class ComposerStaticInit77f03956980255ddab9c24caaa5a6b9a
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
         ),
-        'G' => 
-        array (
-            'GuzzleHttp\\Psr7\\' => 16,
-            'GuzzleHttp\\Promise\\' => 19,
-            'GuzzleHttp\\' => 11,
-        ),
         'F' => 
         array (
             'Fig\\Http\\Message\\' => 17,
             'FastRoute\\' => 10,
         ),
-        'A' => 
-        array (
-            'Adbar\\' => 6,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'xhprof\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/axios/xhprof-composer/src',
-        ),
         'app\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
-        ),
-        'api\\tool\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/axios/api-tool/src',
         ),
         'Twig\\' => 
         array (
@@ -109,18 +82,6 @@ class ComposerStaticInit77f03956980255ddab9c24caaa5a6b9a
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
-        'GuzzleHttp\\Psr7\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
-        ),
-        'GuzzleHttp\\Promise\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
-        ),
-        'GuzzleHttp\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
-        ),
         'Fig\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/fig/http-message-util/src',
@@ -128,10 +89,6 @@ class ComposerStaticInit77f03956980255ddab9c24caaa5a6b9a
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
-        ),
-        'Adbar\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/adbario/php-dot-notation/src',
         ),
     );
 
