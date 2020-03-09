@@ -1,0 +1,15 @@
+{
+    "name": "vrnery/desafio",
+    "description": "Este sistema foi criado para unificar empresas diversas de mesmo seguimento e formar uma base de usuários",
+    "authors": [
+        {
+            "name": "Vanderson Nery",
+            "email": "vandersonrn@gmail.com"
+        }
+    ],
+    "require": {
+        "ext-zip": ">0",
+        "php": ">=7.2",
+        "twig/twig": "^3.0"
+    }
+}
