@@ -3,11 +3,13 @@
     "require": {
         "slim/slim": "^4.4",
         "twig/twig": "^3.0",
-        "slim/psr7": "^1.0"
+        "slim/psr7": "^1.0",
+        "illuminate/database": "^7.0"
     },
     "autoload": {
         "psr-4": {
-            "app\\": "app"
+            "app\\": "app",
+            "Models\\": "app/models/"
         },
         "files": [
             "app/functions/helpers.php"

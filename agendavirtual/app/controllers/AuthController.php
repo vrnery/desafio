@@ -2,9 +2,8 @@
 namespace app\controllers;
 
 class AuthController extends Controller{
-    public function index($request, $response, $args){
+    public function index(){
         $this->view('auth', [
-            'nome' => 'Vanderson',
             'title' => 'Autentication'
         ]);
     }

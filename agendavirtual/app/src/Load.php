@@ -7,7 +7,7 @@ class Load{
             return require null;
         }
         $file = path().$file;
-
+        
         if(!file_exists($file)){
             throw new \Exception("Esse arquivo não existe: {$file}");
         }
