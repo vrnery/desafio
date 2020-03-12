@@ -1,4 +1,15 @@
-CREATE DATABASE dbagevir;
+CREATE DATABASE IF NOT EXISTS dbagevir DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 USE dbagevir;
-CREATE USER 'agevirroot'@'localhost' IDENTIFIED BY 'agerviradmin';
+CREATE USER IF NOT EXISTS 'agevirroot'@'localhost' IDENTIFIED BY 'agerviradmin';
 GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE, SHOW VIEW ON dbagevir.* TO 'agevirroot'@'localhost';
+
+CREATE TABLE IF NOT EXISTS `dbagevir`.`users` (
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `username` VARCHAR(100) DEFAULT NULL,
+    `email` VARCHAR(200) DEFAULT NULL,
+    `password` VARCHAR(200) DEFAULT NULL,
+    `created_at` TIMESTAMP NULL DEFAULT NULL,
+    `updated_at` TIMESTAMP NULL DEFAULT NULL,
+    `deleted_at` TIMESTAMP NULL DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

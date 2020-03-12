@@ -1,8 +1,14 @@
-let btn_subscribe = document.querySelector('#btn_subscribe');
+let btn_subscribe_newuser = document.querySelector('#btn_subscribe_newuser');
 
-btn_subscribe.onclick = function(){
-    axios.post('/auth/login').then((response) => {
-        console.log(response.data);
-    });
-    //axios.get('/auth/login');
-};
+// btn_subscribe_newuser.onclick = function(){
+//     axios.get('/cadastro').then((response) => {
+//         return response.data;
+//     });
+// }
+
+// window.location.href = "/cadastro";
+    // axios.post('/axios/newuser').then((response) => {
+    // axios.get('/cadastro');
+    //     console.log(response.data);
+    // });
+    // axios.get('/auth/login');

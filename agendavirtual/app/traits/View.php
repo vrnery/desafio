@@ -1,20 +1,21 @@
 <?php
 namespace app\traits;
 
-use Twig\Loader\FilesystemLoader;
-use Twig\Environment;
+// use Twig\Loader\FilesystemLoader;
+// use Twig\Environment;
 use app\src\Load;
-use Slim\Exception\HttpException;
+// use Slim\Exception\HttpException;
+// use Psr\Http\Message\ResponseInterface;
 
 trait View{
 
     protected $twig;
 
     protected function twig(){
-        $loader = new FilesystemLoader('../app/views');
-        $this->twig = new Environment($loader, [
+        $loader = new \Twig\Loader\FilesystemLoader('../app/views');
+        $this->twig = new \Twig\Environment($loader, [
             // 'cache' => '../app/cache',
-            'debug' => true
+            // 'debug' => true
         ]);
     }
 

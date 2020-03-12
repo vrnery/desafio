@@ -1,5 +1,8 @@
 <?php
 
+use app\src\Flash;
+use app\src\Redirect;
+
 function dd($data){
     print_r($data);
 
@@ -15,4 +18,22 @@ function json($data){
 function path(){
     $vendorDir = dirname(dirname(__FILE__));
     return dirname($vendorDir);
+}
+
+function flash($index, $message){
+    Flash::add($index, $message);
+}
+
+function error($message) {
+    return "<span class='error'>* {$message}</span>";
+}
+
+function success($message) {
+    return "<span class='success'>{$message}</span>";
+}
+
+function back(){
+    Redirect::back();
+
+    die();
 }

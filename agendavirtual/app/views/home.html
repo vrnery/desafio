@@ -1,9 +1,14 @@
 {% extends "layouts/base.html" %}
 
 {% block content %}
-    <h1>Index {{ teste() }}</h1>
+    <h1>Plataforma para agendamento de serviço</h1>
+    {# <h4>{{ teste() }}</h4> #}
     
-    <p class="important">Welcome to my awesome homepage.</p>
+    <p>Destinado para as empresas e profissionais autonomos, que desenjam disponibilizar suas agendas para todas as pessoas da regiões do Sul, poderem realizar suas reservas de horário.</p>
 
-    <button id="btn_subscribe" class="btn btn-danger" type="submit">Subscribe</button>
+    <a class="btn btn-success" href="/cadastro">Cadastre-se</a>
+    {# <form action="/cadastro" method="get">
+        <button id="btn_newuser" class="btn btn-success" type="submit">Cadastre-se</button>
+    </form> #}
+    
 {% endblock content %}
