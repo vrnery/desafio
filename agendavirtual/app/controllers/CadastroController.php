@@ -15,18 +15,17 @@ class CadastroController extends Controller{
     
     public function index(Request $request, Response $response, Array $args){
         $this->view('cadastro.user', [
-            'title' => 'Cadastre-se'
+            'title' => 'Cadastre-se',
+            'users' => $this->user->all()
         ]);
         return $response;
     }
     
     public function store(Request $request, Response $response, Array $args){
+        // dd($request->parsebody);
         $validate = new Validate;
 
         $data = $validate->validate([
-            // 'username' => 'required:max@30:unique@users',
-            // 'email' => 'required:email:unique@users',
-            // 'password' => 'required'
             'username' => 'required:max@10',
             'email' => 'required:email',
             'password' => 'required'
@@ -41,25 +40,33 @@ class CadastroController extends Controller{
         
         // dd($data);
 
+        $user = new User;
+        $user->username = $_POST['username'];
+        $user->email = $_POST['email'];
+        $user->password = md5($_POST['password']);
+        // dd($user);
+        $user->save();
+                
         $users = new User;
-        $users = $users->all();
+        $users = User::all();
         
-        dd($users);
 
-        $this->view('home', [
-            'title' => 'Home'
-        ]);
 
-        return $response;
-    }
-
-    public function newuser(Request $request, Response $response, Array $args){
-        $newuser = User::create($args);
-        
         $this->view('home', [
             'title' => 'Home',
-            'user' => $newuser
+            '$users' => $users
         ]);
+
         return $response;
     }
+
+    // public function newuser(Request $request, Response $response, Array $args){
+    //     $newuser = User::create($args);
+        
+    //     $this->view('home', [
+    //         'title' => 'Home',
+    //         'user' => $newuser
+    //     ]);
+    //     return $response;
+    // }
 }
