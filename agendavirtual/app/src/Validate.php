@@ -3,10 +3,11 @@
 namespace app\src;
 
 use app\traits\Validations;
+use app\traits\Sanitize;
 
 class Validate{
     
-    use Validations;
+    use Validations, Sanitize;
 
     public function validate($rules){
         foreach ($rules as $field => $validation){
@@ -24,25 +25,29 @@ class Validate{
                 }
             }
         }
+
+        return (object) $this->sanitize();
     }
 
     private function validationWithParamter($field, $validation){
+        $validations = [];
+        
         if(substr_count($validation, '@') > 0){
             $validations = explode(':', $validation);
         }
-
+            
         foreach ($validations as $key => $value) {
             if (substr_count($value, '@') > 0) {
                 list($validationWithParameter, $parameter) = explode('@', $value);
-
+                
                 $this->$validationWithParameter($field, $parameter);
-
+                
                 unset($validations[$key]);
-
+                
                 $validation = implode(':', $validations);
             }
         }
-
+            
         return $validation;
     }
 

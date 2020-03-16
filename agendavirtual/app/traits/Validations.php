@@ -12,7 +12,16 @@ trait Validations{
     }
     
     protected function unique($field, $model){
-        dd($field);
+        $model = "Models\\".ucfirst($model);
+
+        $model = new $model();
+
+        // $find = $model->find($field, $_POST[$field]);
+        $find = $model::where($field, $_POST[$field])->first();
+
+        if ($find and !empty($_POST[$field])) {
+            $this->errors[$field][] = Flash($field, error('Emails já esta cadastrado'));
+        }
     }
     
     protected function email($field){
@@ -22,7 +31,9 @@ trait Validations{
     }
 
     protected function max($field, $max){
-        // dd($field);
+        if (strlen($_POST[$field]) > $max) {
+            $this->errors[$field][] = Flash($field, error('O número máximo de caracteres permitido é '.$max));
+        }
     }
 
     public function hasErrors(){

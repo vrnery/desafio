@@ -29,7 +29,13 @@ function error($message) {
 }
 
 function success($message) {
-    return "<span class='success'>{$message}</span>";
+    return "<div class='alert alert-success' id='myCloseAlert' role='alert'><button type='button' class='close'>&times;</button>{$message}</div>";
+}
+
+function redirect($target){
+    Redirect::redirect($target);
+
+    die();
 }
 
 function back(){

@@ -5,6 +5,7 @@ use Slim\Psr7\Request;
 use Slim\Psr7\Response;
 use Models\User;
 use app\src\Validate;
+use app\src\Flash;
 
 class CadastroController extends Controller{
     protected $user;
@@ -26,8 +27,8 @@ class CadastroController extends Controller{
         $validate = new Validate;
 
         $data = $validate->validate([
-            'username' => 'required:max@10',
-            'email' => 'required:email',
+            'username' => 'required:max@30',
+            'email' => 'required:email:unique@user',
             'password' => 'required'
         ]);
 
@@ -40,24 +41,20 @@ class CadastroController extends Controller{
         
         // dd($data);
 
-        $user = new User;
-        $user->username = $_POST['username'];
-        $user->email = $_POST['email'];
-        $user->password = md5($_POST['password']);
+        $newuser = new User;
+        $newuser->username = $data->username;
+        $newuser->email = $data->email;
+        $newuser->password = md5($data->password);
         // dd($user);
-        $user->save();
-                
-        $users = new User;
-        $users = User::all();
+        $user = $newuser->save();
         
+        if ($user) {
+            Flash('message', success('Cadastrado com sucesso!'));
 
+            return redirect('/');
+        }
 
-        $this->view('home', [
-            'title' => 'Home',
-            '$users' => $users
-        ]);
-
-        return $response;
+        return back();
     }
 
     // public function newuser(Request $request, Response $response, Array $args){
