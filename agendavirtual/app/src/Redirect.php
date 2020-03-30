@@ -9,8 +9,8 @@ class Redirect{
     }
 
     public static function back(){
-        $previous = "javascript:history.go(-1)";
-        // $previous = "javascript:history.back()";
+        // $previous = "javascript:history.go(-1)";
+        $previous = "javascript:history.back()";
 
         if (isset($_SERVER["HTTP_REFERER"])){
             $previous = $_SERVER["HTTP_REFERER"];

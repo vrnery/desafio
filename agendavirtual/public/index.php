@@ -17,8 +17,8 @@ $app->group('/axios', function($router){
 // $router->get('/store', 'app\controllers\CadastroController:store');
 
 $app->group('/cadastro', function($router){
-    $router->get('', 'app\controllers\CadastroController:index');
-    $router->post('/store', 'app\controllers\CadastroController:store');
+    $router->get('/user', 'app\controllers\CadastroController:newuser');
+    $router->post('/storeuser', 'app\controllers\CadastroController:storeuser');
 });
 
 // $app->group('/auth', function($router){
