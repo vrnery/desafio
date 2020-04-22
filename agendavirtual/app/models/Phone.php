@@ -8,6 +8,6 @@ class Phone extends Model{
     protected $fillable = ['id', 'phone', 'whatsapp'];
 
     public function users(){
-        return $this->hasMany(User);
+        return $this->hasMany('Models\User');
     }
 }

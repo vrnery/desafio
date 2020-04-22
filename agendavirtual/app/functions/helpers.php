@@ -32,6 +32,10 @@ function success($message) {
     return "<div class='alert alert-success' id='myCloseAlert' role='alert'><button type='button' class='close'>&times;</button>{$message}</div>";
 }
 
+function alert($message) {
+    return "<div class='alert alert-danger' id='myCloseAlert' role='alert'><button type='button' class='close'>&times;</button>{$message}</div>";
+}
+
 function redirect($target){
     Redirect::redirect($target);
 

@@ -1,0 +1,97 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<h2>Editar seu perfil</h2>
+
+<hr>
+
+<div class="row">
+    <div class="col-sm-8">
+        <form action="/user/update" method="POST">
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="">Usuário*</label>
+                    <input type="text" name="username" class="form-control" value="{{ user.username }}">
+                    {{ message('username') }}
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="">Email*</label>
+                    <input type="text" name="email" class="form-control" value="{{ user.email }}">
+                    {{ message('email') }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label for="">Senha*</label>
+                    <input type="password" name="password" class="form-control">
+                    {{ message('password') }}
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="">Telefone</label>
+                    <input type="text" name="telephone" class="form-control" maxlength="14" value="{{ user.telephone.phone }}" placeholder="(xx) xxxx-xxxx">
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="telewhats" {{ (user.telephone.whatsapp) ? 'checked' }}>
+                        <label class="form-check-label" for="telewhats">Possui whatsapp</label>
+                    </div>
+                    {{ message('telephone') }}
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="">Celular</label>
+                    <input type="text" name="cellphone" class="form-control" maxlength="15" value="{{ user.cellphone.phone }}" placeholder="(xx) xxxxx-xxxx">
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="cellwhats" {{ (user.cellphone.whatsapp) ? 'checked' }}>
+                        <label class="form-check-label" for="cellwhats">Possui whatsapp</label>
+                    </div>
+                    {{ message('cellphone') }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-3">
+                    <label for="">Cep</label>
+                    <button id="btn_subscribe_cep" type="button" class="btn btn-link btn-sm">Consultar</button>
+                    <input type="text" name="zipcode" class="form-control" id="zipcode" maxlength="9" value="{{ user.address.zipcode }}" placeholder="xxxxx-xxx">
+                    {{ message('zipcode') }}
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="">Rua</label>
+                    <input type="text" name="street" class="form-control" id="street" value="{{ user.address.street }}">
+                    {{ message('street') }}
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="">Número</label>
+                    <input type="text" name="number" class="form-control" value="{{ user.number }}">
+                    {{ message('number') }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-5">
+                    <label for="">Bairro</label>
+                    <input type="text" name="neighborhood" class="form-control" id="neighborhood" value="{{ user.address.neighborhood }}">
+                    {{ message('neighborhood') }}
+                </div>
+                <div class="form-group col-sm-5">
+                    <label for="">Cidade</label>
+                    <input type="text" name="city" class="form-control" id="city" value="{{ user.address.city }}">
+                    {{ message('city') }}
+                </div>
+                <div class="form-group col-sm-2">
+                    <label for="">UF</label>
+                    <input type="text" name="abbreviation" class="form-control" id="abbreviation" maxlength="2" value="{{ user.address.abbreviation }}">
+                    {{ message('abbreviation') }}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Salvar</button>
+        </form>
+    </div>
+    <div class="col-sm-3">
+        <form action="/user/foto" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="">Foto</label>
+                <input type="file" name="file" class="form-control">
+                {{ message('file') }}
+            </div>
+            <button type="submit" class="btn btn-info">Upload</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

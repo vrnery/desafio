@@ -8,6 +8,6 @@ class Adresse extends Model{
     protected $fillable = ['id', 'zipcode', 'street', 'neighborhood', 'city', 'abbreviation'];
     
     public function users(){
-        return $this->hasMany(User);
+        return $this->hasMany('Models\User');
     }
 }

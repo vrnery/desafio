@@ -67,3 +67,25 @@ CREATE TABLE IF NOT EXISTS `dbagevir`.`companies` (
     FOREIGN KEY (`cellphone_id`) REFERENCES `dbagevir`.`phones`(`id`) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (`user_id`) REFERENCES `dbagevir`.`users`(`id`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `dbagevir`.`users` ADD COLUMN `photo` VARCHAR(255) DEFAULT NULL AFTER `cellphone_id`;
+
+ALTER TABLE `dbagevir`.`users` DROP FOREIGN KEY `users_ibfk_1`;
+ALTER TABLE `dbagevir`.`users` DROP FOREIGN KEY `users_ibfk_2`;
+ALTER TABLE `dbagevir`.`users` DROP FOREIGN KEY `users_ibfk_3`;
+ALTER TABLE `dbagevir`.`users` ADD CONSTRAINT `fk_users_address`
+  FOREIGN KEY (`adresse_id`) REFERENCES `dbagevir`.`adresses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `dbagevir`.`users` ADD CONSTRAINT `fk_users_telephone`
+  FOREIGN KEY (`telephone_id`) REFERENCES `dbagevir`.`phones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `dbagevir`.`users` ADD CONSTRAINT `fk_users_cellphone`
+  FOREIGN KEY (`cellphone_id`) REFERENCES `dbagevir`.`phones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE `dbagevir`.`companies` DROP FOREIGN KEY `companies_ibfk_1`;
+ALTER TABLE `dbagevir`.`companies` DROP FOREIGN KEY `companies_ibfk_2`;
+ALTER TABLE `dbagevir`.`companies` DROP FOREIGN KEY `companies_ibfk_3`;
+ALTER TABLE `dbagevir`.`companies` ADD CONSTRAINT `fk_companies_address`
+  FOREIGN KEY (`adresse_id`) REFERENCES `dbagevir`.`adresses` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `dbagevir`.`companies` ADD CONSTRAINT `fk_companies_telephone`
+  FOREIGN KEY (`telephone_id`) REFERENCES `dbagevir`.`phones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `dbagevir`.`companies` ADD CONSTRAINT `fk_companies_cellphone`
+  FOREIGN KEY (`cellphone_id`) REFERENCES `dbagevir`.`phones` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
